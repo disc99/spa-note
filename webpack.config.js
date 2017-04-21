@@ -1,6 +1,6 @@
 module.exports = {
-    entry: { js: './src/main.js' },
-    output: { path: './public', filename: 'bundle.js' },
+    entry: { js: __dirname + '/src/main.js' },
+    output: { path: __dirname + '/public', filename: 'bundle.js' },
     module: {
         loaders: [
             {
@@ -10,5 +10,11 @@ module.exports = {
             }
         ]
     },
-    devtool: 'source-map'
+    devtool: 'source-map',
+    devServer: {
+        contentBase: __dirname + '/public',
+        port: 8080,
+        inline: true,
+        historyApiFallback: true
+    }
 };
